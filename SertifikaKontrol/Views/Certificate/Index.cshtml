@@ -1,0 +1,138 @@
+﻿@model List<Certificate>
+
+
+<div class="text-center">
+    <h2 class="display-6 mb-5 page-title">Sertifikam</h2>
+    <div class="table-responsive">
+        <table class="table surreal-table">
+            <thead>
+                <tr>
+                    <th class="table-header">Sertifika</th>
+                    <th class="table-header">Başvuru Yap</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count() > 0)
+                {  //Certificate modelinde veri varsa
+                    @foreach (Certificate cer in Model)
+                    {
+                        <tr>
+                            <partial name="_CertificateRow" model="@cer" />
+                            <td class="align-middle">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <a class="btn surreal-btn" asp-action="Create">
+                                        <i class="fa-solid fa-pen-to-square"></i> Güncelleme Başvurusu
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr><td colspan="2" class="table-content-empty">Sertifika bulunamadı.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="mt-4 button-container">
+        <a asp-action="SendSms" asp-controller="Certificate" class="btn surreal-btn-alt">
+            <i class="fa-solid fa-mobile-screen-button fa-beat-fade"></i> Telefonla Bildirim Al
+        </a>
+        <a asp-action="SendEmail" asp-controller="Certificate" class="btn surreal-btn-alt">
+            <i class="fa-solid fa-envelope fa-beat-fade"></i> Maille Bildirim Al
+        </a>
+    </div>
+</div>
+
+<style>
+    /* Sayfa Başlık Stili */
+    .page-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: #34495e;
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+        letter-spacing: 1.5px;
+    }
+
+    /* Tablo Stili */
+    .surreal-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Tablo Başlık Stili */
+    .table-header {
+        background: linear-gradient(135deg, #82ada9, #4cafab);
+        color: #ffffff;
+        font-size: 1.2rem;
+        padding: 1rem;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /* Tablo İçerik Stili */
+    .table-content {
+        background: linear-gradient(135deg, #e6f7f5, #cdeae8);
+        color: #34495e;
+        padding: 1rem;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.1rem;
+        text-align: center;
+        transition: transform 0.2s, background 0.3s;
+        border-radius: 10px;
+    }
+
+    /* Boş İçerik Hücresi */
+    .table-content-empty {
+        background: linear-gradient(135deg, #f0e6d6, #eadbc5);
+        color: #7f8c8d;
+        padding: 1rem;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.1rem;
+        text-align: center;
+        border-radius: 10px;
+        font-style: italic;
+    }
+
+    /* Butonlar */
+    .surreal-btn {
+        background: linear-gradient(135deg, #a3dcd9, #79c0bf);
+        color: #34495e;
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+        border-radius: 12px;
+        border: none;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .surreal-btn-alt {
+        background: linear-gradient(135deg, #e6bfb3, #d99a7a);
+        color: #ffffff;
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+        border-radius: 12px;
+        border: none;
+        margin: 0 0.5rem;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+        .surreal-btn:hover,
+        .surreal-btn-alt:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.25);
+        }
+
+    /* Genel Arka Plan */
+    body {
+        background: radial-gradient(circle, #d8e8e7, #a3dcd9, #79c0bf);
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
+

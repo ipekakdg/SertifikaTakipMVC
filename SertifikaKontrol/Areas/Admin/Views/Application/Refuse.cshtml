@@ -1,0 +1,15 @@
+﻿
+@if (ViewData["Error"] != null)
+{
+        <div class="alert alert-danger">
+            <strong>Hata:</strong> @ViewData["Error"]
+        </div>
+}
+
+@if (ViewData["Success"] != null)
+{
+        <h3 class="display-8 text-center">Başvuru Onay</h3>
+        <div class="alert alert-success">
+            <strong>@ViewData["Success"]</strong>
+        </div>
+}

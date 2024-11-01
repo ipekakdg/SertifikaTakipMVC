@@ -1,0 +1,7 @@
+﻿@model Certificate
+@using Microsoft.AspNetCore.Http;   <!--Session işlemleri için using ve inject kullandık-->
+@inject IHttpContextAccessor Accessor
+
+<td class="align-middle">@Accessor?.HttpContext?.Session.GetString("KullaniciAdi") kullanıcısının @Model.SertifikaNo nolu @Model.SertifikaAdi Bitiş Zamanı: @Model.BitisTarihi</td>
+
+<!--Giriş yapan kullanıcının kullanıcı adını getirme-->

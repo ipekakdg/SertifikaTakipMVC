@@ -1,0 +1,95 @@
+@model List<Application>    
+
+<div class="text-center">
+    <h2 class="display-6 mb-5 page-title">Başvurularım</h2>
+    <div class="table-responsive">
+        <table class="table surreal-table">
+            <thead>
+                <tr>
+                    <th class="table-header">Başvuru Durumu</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count > 0)
+                {
+                    @foreach (Application app in Model)
+                    {
+                        <partial name="_ApplicationRow" model="@app" />
+                    }
+                }
+                else
+                {
+                    <tr><td class="table-content-empty">Başvuru bulunamadı.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    /* Başlık Stili */
+    .page-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: #2c3e50;
+        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        letter-spacing: 1.5px;
+    }
+
+    /* Tablo Stili */
+    .surreal-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Tablo Başlık Stili */
+    .table-header {
+        background: linear-gradient(135deg, #76c7c0, #34a89d);
+        color: #ffffff;
+        font-size: 1.2rem;
+        padding: 1rem;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /* Tablo İçerik Hücreleri Stili */
+    .table-content {
+        background: linear-gradient(135deg, #d1f0e3, #bde8d6);
+        color: #2c3e50;
+        padding: 1rem;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.1rem;
+        text-align: center;
+        transition: transform 0.2s, background 0.3s;
+        border-radius: 10px;
+    }
+
+    /* Boş İçerik Hücresi */
+    .table-content-empty {
+        background: linear-gradient(135deg, #f0e6d6, #eadbc5);
+        color: #7f8c8d;
+        padding: 1rem;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.1rem;
+        text-align: center;
+        border-radius: 10px;
+        font-style: italic;
+    }
+
+    /* Hover ve Animasyon Efekti */
+    .table-content:hover {
+        transform: scale(1.02);
+        background: linear-gradient(135deg, #a0ded6, #76c7c0);
+        color: #1b3a4b;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Sayfa Arka Planı */
+    body {
+        background: radial-gradient(circle, #e0f7fa, #a7ffeb, #4db6ac);
+    }
+</style>

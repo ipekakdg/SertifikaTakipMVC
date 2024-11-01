@@ -1,0 +1,124 @@
+﻿@model Employee
+
+<!--
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Giriş Yap</h2>
+
+            <form asp-action="Login" method="post">
+				<div class="text-danger" asp-validation-summary="All"></div>-->
+                <!-- Email -->
+           <!--     <div class="mb-3">
+                    <label asp-for="KullaniciAdi">Kullanıcı Adı</label>
+                    <input asp-for="KullaniciAdi" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Sifre">Şifre</label>
+                    <input type="password" asp-for="Sifre" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <p>Hesabınız yoksa <a asp-action="Register">kayıt olun</a></p>
+                </div>
+                <div class="container mt-4">
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary">Giriş Yap</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="~/Login/images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Login/vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Login/vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Login/vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Login/vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="~/Login/css/login.css">
+	<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="~/Login/images/img-01.png" alt="IMG">
+				</div>
+
+                <form asp-action ="Login" method="post" class="login100-form validate-form">
+					<span class="login100-form-title">
+						Üye Girişi
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate="Kullanıcı adı doğrulaması gerekli: ex@abc.xyz">
+						<input asp-for="KullaniciAdi" class="input100" type="text" placeholder="Kullanıcı Adı">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Şifre gerekli">
+						<input asp-for="Sifre" class="input100" type="password" placeholder="Şifre">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Giriş Yap
+						</button>
+					</div>
+
+
+					<div class="text-center p-t-136">
+						<a class="txt2" asp-action="Register">
+							Kayıt Ol
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!--===============================================================================================-->
+	<script src="~/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="~/Login/vendor/bootstrap/js/popper.js"></script>
+	<script src="~/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="~/Login/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="~/Login/vendor/tilt/tilt.jquery.min.js"></script>
+	<script>
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<!--===============================================================================================-->
+	<script src="~/Login/js/main.js"></script>
+
+
+</body>
+</html>

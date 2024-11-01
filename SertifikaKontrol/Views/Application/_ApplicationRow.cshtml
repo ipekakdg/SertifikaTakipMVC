@@ -1,0 +1,9 @@
+﻿@model Application  //model tanıtma
+@using Microsoft.AspNetCore.Http;  <!--Session işlemleri için using ve inject kullandık-->
+@inject IHttpContextAccessor Accessor
+
+
+    <tr>
+    <td>Sayın @Accessor?.HttpContext?.Session.GetString("KullaniciAdi")  @Model.BasvuruTarihi süresinde e-imza sertifika başvurunuz alınmıştır.</td>
+    </tr>
+    <!--Giriş yapan kullanıcının kullanıcı adını getirme-->

@@ -1,0 +1,16 @@
+﻿@if (ViewData["Error"] != null)
+{
+    <h3 class="display-8 text-center">Sertifika Tarihi Güncelleme İşlemi</h3>
+    <div class="alert alert-danger">
+        <strong>@ViewData["Error"]</strong>
+    </div>
+}
+
+@if (ViewData["Success"] != null)
+{
+    <h3 class="display-8 text-center">Sertifika Tarihi Güncelleme İşlemi</h3>
+    <div class="alert alert-success">
+        <strong>@ViewData["Success"]</strong>
+    </div>
+}
+

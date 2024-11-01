@@ -1,0 +1,155 @@
+﻿@model Employee
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center page-title mb-5">Kayıt Ol</h2>
+
+            <form asp-controller="Login" asp-action="Register" method="post">
+                <div class="text-danger text-center" asp-validation-summary="All"></div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Ad" class="form-label">Ad</label>
+                        <input asp-for="Ad" class="form-control surreal-input" required>
+                        <span asp-validation-for="Ad" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Soyad" class="form-label">Soyad</label>
+                        <input asp-for="Soyad" class="form-control surreal-input" required>
+                        <span asp-validation-for="Soyad" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">Email</label>
+                    <input asp-for="Email" class="form-control surreal-input" required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Departman" class="form-label">Departman</label>
+                    <input asp-for="Departman" class="form-control surreal-input" required>
+                    <span asp-validation-for="Departman" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="PersonelNo" class="form-label">Personel No</label>
+                    <input asp-for="PersonelNo" class="form-control surreal-input" required>
+                    <span asp-validation-for="PersonelNo" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Pozisyon" class="form-label">Pozisyon</label>
+                    <input asp-for="Pozisyon" class="form-control surreal-input" required>
+                    <span asp-validation-for="Pozisyon" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="DogumTarihi" class="form-label">Doğum Tarihi</label>
+                    <input type="date" asp-for="DogumTarihi" class="form-control surreal-input" required>
+                    <span asp-validation-for="DogumTarihi" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="IseGirisTarihi" class="form-label">İşe Giriş Tarihi</label>
+                    <input type="date" asp-for="IseGirisTarihi" class="form-control surreal-input" required>
+                    <span asp-validation-for="IseGirisTarihi" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Adres" class="form-label">Adres</label>
+                    <input asp-for="Adres" class="form-control surreal-input" required>
+                    <span asp-validation-for="Adres" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Telefon" class="form-label">Telefon</label>
+                    <input asp-for="Telefon" class="form-control surreal-input" required>
+                    <span asp-validation-for="Telefon" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="KullaniciAdi" class="form-label">Kullanıcı Adı</label>
+                    <input asp-for="KullaniciAdi" class="form-control surreal-input" required>
+                    <span asp-validation-for="KullaniciAdi" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Sifre" class="form-label">Şifre</label>
+                    <input asp-for="Sifre" type="password" class="form-control surreal-input" required>
+                    <span asp-validation-for="Sifre" class="text-danger"></span>
+                </div>
+
+                <div class="container mt-4">
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn surreal-btn">Kayıt Ol</button>
+                    </div>
+                </div>
+
+                @if (ViewData["Error"] != null)
+                {
+                    <div class="alert alert-danger text-center mt-3">
+                        <strong>Hata:</strong> @ViewData["Error"]
+                    </div>
+                }
+                @if (ViewData["Success"] != null)
+                {
+                    <div class="alert alert-success text-center mt-3">
+                        <strong>@ViewData["Success"]</strong>
+                    </div>
+                }
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Sayfa Başlığı */
+    .page-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: #33475b; /* Koyu pastel ton */
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Form Label */
+    .form-label {
+        color: #336f70;
+        font-weight: bold;
+    }
+
+    /* Form Input Stilleri */
+    .surreal-input {
+        background: #e0f7fa;
+        border: 1px solid #b2ebf2;
+        border-radius: 12px;
+        color: #004d40;
+        font-size: 1rem;
+        transition: all 0.3s ease-in-out;
+        box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .surreal-input:focus {
+            background: #b2ebf2;
+            border-color: #81d4fa;
+            box-shadow: 0px 0px 10px rgba(129, 212, 250, 0.6);
+        }
+
+    /* Buton Stili */
+    .surreal-btn {
+        background: linear-gradient(45deg, #00acc1, #4dd0e1);
+        color: #ffffff;
+        padding: 0.75rem 2rem;
+        border: none;
+        border-radius: 15px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        box-shadow: 0px 5px 15px rgba(0, 150, 136, 0.4);
+        transition: all 0.3s ease-in-out;
+    }
+
+        .surreal-btn:hover {
+            background: linear-gradient(45deg, #4dd0e1, #00acc1);
+            box-shadow: 0px 8px 20px rgba(0, 150, 136, 0.6);
+            transform: translateY(-3px);
+        }
+
+    /* Arkaplan */
+    body {
+        background: radial-gradient(circle, #e0f7fa, #80deea, #4db6ac);
+    }
+</style>

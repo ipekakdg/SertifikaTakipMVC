@@ -1,0 +1,17 @@
+﻿<!-- Gerekli diğer HTML içeriği -->
+@if (ViewData["Error"] != null)
+{
+        <div class="alert alert-danger">
+            <strong>Hata:</strong> @ViewData["Error"]          <!--Error varsa SendSms metodundaki error u yazdır-->
+        </div>
+}
+
+@if (ViewData["Success"] != null)
+{
+    <h3 class="display-8 text-center">Telefonla Bildirim Başvurusu</h3>
+        <div class="alert alert-success">
+        <strong>@ViewData["Success"]</strong>       <!--Success olduysa SendSms metodundaki success i yazdır-->
+    </div>
+}
+
+<!-- Gerekli diğer HTML içeriği -->

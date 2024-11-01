@@ -1,0 +1,41 @@
+﻿@model List<Application>
+
+<div class="text-center">
+    <h2 class="display-6">Gelen Başvurular</h2>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Başvurular</th>
+                <th>Başvuru Onay</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var app in Model)
+            {
+            <tr>
+                    <td class="align-middle">@ViewBag.EmployeeUsernames[Model.IndexOf(app)] kullanıcısı tarafından @app.BasvuruTarihi tarihinde yapılmış e-imza sertifika başvurusu</td>
+            
+                        <td class="align-middle">
+                                <div class="d-flex justify-content-center align-items-center">
+                                <a class="btn btn-success mx-1" asp-action="Accept" asp-route-applicationId="@app.ApplicationID">
+                                    <i class="fa-solid fa-check" style="color: #ffffff;"></i>
+                                    Onayla
+                                </a>
+                            
+                            <a class="btn btn-danger mx-1" asp-action="Refuse" asp-route-id="@app.ApplicationID">
+                                <i class="fa-solid fa-xmark" style="color: #ffffff;"></i>
+                                Reddet
+                            </a>
+                    <a class="btn btn-info mx-1" asp-action="UpdateCerDate" asp-route-appId="@app.ApplicationID">
+                                <i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>
+                             Sertifika Güncelle   
+                            </a>
+
+                        </div>
+                    </td>
+                    </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

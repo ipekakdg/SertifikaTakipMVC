@@ -1,0 +1,14 @@
+﻿@if (ViewData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Hata:</strong> @ViewData["Error"]            <!--Error varsa SendEmail metodundaki error u yazdır-->
+    </div>
+}
+
+@if (ViewData["Success"] != null)
+{
+    <h3 class="display-8 text-center">Maille Bildirim Başvurusu</h3>
+    <div class="alert alert-success">
+        <strong>@ViewData["Success"]</strong>            <!--Success olduysa SendEmail metodundaki success i yazdır-->
+    </div>
+}
